@@ -26,6 +26,6 @@ val filteredLines: RDD[Row] = logLines.map(line => parseLog(line))
   .map(logPair => Row(logPair._1, logPair._2))
 ```
 
-> log text example
+**log text example**
 > 2022-01-01 01:01:12 [info]: [user1]: GET /userdata
 
