@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #e8f9fd;
+}
+
+/* https://colorhunt.co/palette/e8f9fd79dae80aa1dd2155cd */
+#root {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  margin: 10px;
+}
+
+div.item {
+  flex-shrink: 1;
+  height: 50px;
+  color: #06597a;
+  border: 3px solid #0aa1dd;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  --shadow-color: 192deg 26% 60%;
+  box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color)/0.36), 0.8px 1.6px 2px -0.8px hsl(var(--shadow-color)/0.36), 2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color)/0.36), 5px 10px 12.6px -2.5px hsl(var(--shadow-color)/0.36);
+}
+
+div.item .clip {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+}
+
+div.item:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  --animation-duration: 0.3s;
+  transition: box-shadow var(--animation-duration), border-width var(--animation-duration), transform var(--animation-duration), scale var(--animation-duration);
+  box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color)/0.34), 1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color)/0.34), 2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color)/0.34), 4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color)/0.34), 7.1px 14.3px 18px -1.4px hsl(var(--shadow-color)/0.34), 11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color)/0.34), 17px 33.9px 42.7px -2.1px hsl(var(--shadow-color)/0.34), 25px 50px 62.9px -2.5px hsl(var(--shadow-color)/0.34);
+}
+
+div.item:hover .clip {
+  border: 3px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  background: #79dae8;
+  transition: clip-path var(--animation-duration);
+}
+
+div.item .text-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+div.item .text-value {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  font-size: 0.8rem;
+  color: #999999;
+  z-index: 1;
+}
